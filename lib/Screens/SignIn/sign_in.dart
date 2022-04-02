@@ -1,3 +1,4 @@
+import 'package:eagleshop/Screens/Home/home.dart';
 import 'package:eagleshop/Screens/SignUp/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +137,7 @@ class _Sign_InState extends State<Sign_In> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const Sign_Up(),
+                                builder: (_) => const Home(),
                               ),
                             );
                           },
@@ -168,7 +169,7 @@ class _Sign_InState extends State<Sign_In> {
                 Fluttertoast.showToast(msg: "Login Successful"),
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => const Sign_Up(),
+                    builder: (context) => const Home(),
                   ),
                 ),
               })

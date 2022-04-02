@@ -1,4 +1,4 @@
-import 'package:eagleshop/Screens/SignIn/sign_in.dart';
+import 'package:eagleshop/Screens/Onboarding_Screen/onbording.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Sign_In())));
+            context, MaterialPageRoute(builder: (context) => const Onbording())));
   }
 
   @override
