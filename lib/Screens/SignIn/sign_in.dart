@@ -76,7 +76,7 @@ class _Sign_InState extends State<Sign_In> {
       borderRadius: BorderRadius.circular(30),
       color: Colors.red,
       child: MaterialButton(
-        splashColor: Colors.black,
+        splashColor: const Color.fromARGB(255, 121, 30, 30),
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
@@ -137,7 +137,7 @@ class _Sign_InState extends State<Sign_In> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const Home(),
+                                builder: (_) => const Sign_Up(),
                               ),
                             );
                           },

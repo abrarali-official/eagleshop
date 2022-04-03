@@ -267,6 +267,6 @@ class _Sign_UpState extends State<Sign_Up> {
         .doc(user.uid)
         .set(userModel.tomap());
     Fluttertoast.showToast(msg: "Account created successfully :)");
-    Get.to(const Home());
+    Get.to(() => const Home());
   }
 }
