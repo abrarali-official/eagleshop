@@ -1,5 +1,5 @@
+import 'package:eagleshop/Screens/Home/home.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:eagleshop/Screens/Splash_Screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const SplashScreen(),
+      home: const Home(),
     );
   }
 }

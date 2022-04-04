@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class CustomNavbar extends StatelessWidget {
@@ -26,7 +27,7 @@ class CustomNavbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -37,7 +38,7 @@ class CustomNavbar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -48,7 +49,7 @@ class CustomNavbar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -59,7 +60,7 @@ class CustomNavbar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(

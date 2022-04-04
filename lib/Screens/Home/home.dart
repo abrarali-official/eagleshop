@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../Widgets/Custom/custom_nav.dart';
+import '../../Widgets/Custom/customnav.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+        child: Scaffold(
       bottomNavigationBar: const CustomNavbar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -17,8 +18,8 @@ class Home extends StatelessWidget {
           ),
         ),
         onPressed: () {},
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add_shopping_cart_rounded),
       ),
-    );
+    ));
   }
 }
