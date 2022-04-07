@@ -1,5 +1,7 @@
+import 'package:eagleshop/Screens/SignIn/sign_in.dart';
 import 'package:eagleshop/Widgets/Custom/customdrawer/Drawer_items/drawer_items.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // ignore: camel_case_types
 class Custom_Drawer extends StatelessWidget {
@@ -54,7 +56,16 @@ class Custom_Drawer extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
+              Drawer_Items(
+                  name: "Settings",
+                  icon: Icons.settings_outlined,
+                  onPressed: () {}),
+              Drawer_Items(
+                  name: "Log Out",
+                  icon: Icons.logout_outlined,
+                  onPressed: () {
+                    Get.to(() => const Sign_In());
+                  }),
             ],
           ),
         ),
@@ -64,7 +75,7 @@ class Custom_Drawer extends StatelessWidget {
 
   Widget headerWidget() {
     const url =
-        'https://media.istockphoto.com/photos/learn-to-love-yourself-first-picture-id1291208214?b=1&k=20&m=1291208214&s=170667a&w=0&h=sAq9SonSuefj3d4WKy4KzJvUiLERXge9VgZO-oqKUOo=';
+        'https://www.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1157693.htm#query=person&position=3&from_view=search';
     return Row(
       children: [
         const CircleAvatar(
@@ -77,12 +88,15 @@ class Custom_Drawer extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text('Person name',
-                style: TextStyle(fontSize: 14, color: Colors.white)),
+            Text('Person Name',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold)),
             SizedBox(
               height: 10,
             ),
-            Text('person@email.com',
+            Text('person@gmail.com',
                 style: TextStyle(fontSize: 14, color: Colors.white))
           ],
         )
