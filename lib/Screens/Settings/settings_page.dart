@@ -7,14 +7,16 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const CustomNavbar(),
-      appBar: AppBar(),
-      body: const Center(
-          child: Text(
-        "Settings",
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-      )),
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: const CustomNavbar(),
+        appBar: AppBar(),
+        body: const Center(
+            child: Text(
+          "Settings",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        )),
+      ),
     );
   }
 }
