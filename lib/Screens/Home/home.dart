@@ -3,6 +3,7 @@ import 'package:eagleshop/Widgets/Custom/customdrawer/custom_drawer.dart';
 import 'package:fancy_drawer/fancy_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../Widgets/Custom/Custom_nav/customnav.dart';
 
 class Home extends StatefulWidget {
@@ -34,8 +35,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 226, 224, 224),
           appBar: AppBar(
-            title: const Text("Home"),
+            shadowColor: Colors.white,
           ),
           bottomNavigationBar: const CustomNavbar(),
           floatingActionButtonLocation:

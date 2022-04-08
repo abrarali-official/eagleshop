@@ -43,7 +43,7 @@ class _Sign_InState extends State<Sign_In> {
           prefixIcon: const Icon(Icons.mail),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //------------------------------Password
     final passwordFeild = TextFormField(
@@ -68,16 +68,16 @@ class _Sign_InState extends State<Sign_In> {
           prefixIcon: const Icon(Icons.vpn_key),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Button
     final loginbutton = Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.red,
+      borderRadius: BorderRadius.circular(10),
+      color: const Color.fromRGBO(220, 34, 34, 1),
       child: MaterialButton(
         splashColor: const Color.fromARGB(255, 121, 30, 30),
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        padding: const EdgeInsets.fromLTRB(60, 15, 60, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           signIn(emailcontroller.text, passwordcontroller.text);
@@ -145,7 +145,7 @@ class _Sign_InState extends State<Sign_In> {
                             " Sign up",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Colors.red,
+                                color: Color.fromRGBO(220, 34, 34, 1),
                                 fontSize: 15),
                           ),
                         ),

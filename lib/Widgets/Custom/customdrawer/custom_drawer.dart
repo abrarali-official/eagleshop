@@ -1,72 +1,120 @@
-import 'package:eagleshop/Screens/SignIn/sign_in.dart';
-import 'package:eagleshop/Widgets/Custom/customdrawer/Drawer_items/drawer_items.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// ignore_for_file: camel_case_types
 
-// ignore: camel_case_types
-class Custom_Drawer extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eagleshop/Widgets/Custom/customdrawer/Drawer_items/drawer_items.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../../Model/user_model.dart';
+
+class Custom_Drawer extends StatefulWidget {
   const Custom_Drawer({Key? key}) : super(key: key);
 
   @override
+  State<Custom_Drawer> createState() => _Custom_DrawerState();
+}
+
+class _Custom_DrawerState extends State<Custom_Drawer> {
+  User? user = FirebaseAuth.instance.currentUser;
+
+  UserModel loggedinUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedinUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Material(
-        color: Colors.red,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24.0, 80, 24, 0),
-          child: Column(
-            children: [
-              headerWidget(),
-              const SizedBox(
-                height: 40,
-              ),
-              const Divider(
-                thickness: 1,
-                height: 10,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
-              const SizedBox(
-                height: 20,
-              ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
-              const SizedBox(
-                height: 20,
-              ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
-              const SizedBox(
-                height: 20,
-              ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
-              const SizedBox(
-                height: 20,
-              ),
-              Drawer_Items(name: "Mens", icon: Icons.people, onPressed: () {}),
-              const SizedBox(
-                height: 20,
-              ),
-              const Divider(
-                thickness: 1,
-                height: 10,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Drawer_Items(
-                  name: "Settings",
-                  icon: Icons.settings_outlined,
-                  onPressed: () {}),
-              Drawer_Items(
-                  name: "Log Out",
-                  icon: Icons.logout_outlined,
-                  onPressed: () {
-                    Get.to(() => const Sign_In());
-                  }),
-            ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Drawer(
+        backgroundColor: Colors.transparent,
+        child: Material(
+          borderOnForeground: true,
+          borderRadius: BorderRadius.circular(40),
+          elevation: 5,
+          color: const Color.fromRGBO(220, 34, 34, 1),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24.0, 80, 24, 0),
+            child: Column(
+              children: [
+                headerWidget(),
+                const SizedBox(
+                  height: 40,
+                ),
+                const Divider(
+                  thickness: 2,
+                  height: 10,
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Drawer_Items(
+                    name: "Brands",
+                    icon: Icons.book_outlined,
+                    onPressed: () {}),
+                const SizedBox(
+                  height: 20,
+                ),
+                Drawer_Items(
+                    name: "Women's Collection",
+                    icon: Icons.collections_outlined,
+                    onPressed: () {}),
+                const SizedBox(
+                  height: 20,
+                ),
+                Drawer_Items(
+                    name: "Men's Collective",
+                    icon: Icons.collections_outlined,
+                    onPressed: () {}),
+                const SizedBox(
+                  height: 20,
+                ),
+                Drawer_Items(
+                    name: "Shoes Brands",
+                    icon: Icons.shopping_basket_outlined,
+                    onPressed: () {}),
+                const SizedBox(
+                  height: 20,
+                ),
+                Drawer_Items(
+                    name: "sale's",
+                    icon: Icons.grade_outlined,
+                    onPressed: () {}),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Divider(
+                  thickness: 2,
+                  height: 10,
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Drawer_Items(
+                    name: "Settings",
+                    icon: Icons.settings_outlined,
+                    onPressed: () {}),
+                Drawer_Items(
+                    name: "Log Out",
+                    icon: Icons.logout_outlined,
+                    onPressed: () {
+                      showConfirmLogout();
+                    }),
+              ],
+            ),
           ),
         ),
       ),
@@ -74,33 +122,58 @@ class Custom_Drawer extends StatelessWidget {
   }
 
   Widget headerWidget() {
-    const url =
-        'https://www.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1157693.htm#query=person&position=3&from_view=search';
     return Row(
       children: [
         const CircleAvatar(
+          backgroundColor: Color.fromARGB(255, 228, 133, 133),
           radius: 40,
-          backgroundImage: NetworkImage(url),
+          child: Icon(
+            Icons.person,
+            color: Colors.white,
+            size: 40,
+          ),
         ),
         const SizedBox(
           width: 20,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('Person Name',
-                style: TextStyle(
+          children: [
+            Text("${loggedinUser.firstname}",
+                style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
                     fontWeight: FontWeight.bold)),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text('person@gmail.com',
-                style: TextStyle(fontSize: 14, color: Colors.white))
+            Text("${loggedinUser.email}",
+                style: const TextStyle(fontSize: 14, color: Colors.white))
           ],
         )
       ],
     );
+  }
+
+  showConfirmLogout() {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (context) => CupertinoActionSheet(
+            message: const Text("Would you like to sign out?"),
+            actions: [
+              CupertinoActionSheetAction(
+                onPressed: () {},
+                child: const Text(
+                  "Sign Out",
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              child: const Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )));
   }
 }

@@ -54,7 +54,7 @@ class _OnbordingState extends State<Onbording> {
                         style: const TextStyle(
                             fontSize: 35,
                             fontWeight: FontWeight.bold,
-                            color: Colors.red),
+                            color: Color.fromRGBO(220, 34, 34, 1)),
                       ),
                       const SizedBox(height: 20),
                       Text(
@@ -80,7 +80,7 @@ class _OnbordingState extends State<Onbording> {
           ),
           Container(
             height: 60,
-            margin: const EdgeInsets.all(40),
+            margin: const EdgeInsets.all(50),
             width: double.infinity,
             child: MaterialButton(
               child: Text(
@@ -101,7 +101,7 @@ class _OnbordingState extends State<Onbording> {
               color: Theme.of(context).primaryColor,
               textColor: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
           )

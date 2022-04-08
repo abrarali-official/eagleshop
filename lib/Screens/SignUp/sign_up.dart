@@ -49,7 +49,7 @@ class _Sign_UpState extends State<Sign_Up> {
           prefixIcon: const Icon(Icons.person),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "First Name",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Last Name
     final lastnamefeild = TextFormField(
@@ -69,7 +69,7 @@ class _Sign_UpState extends State<Sign_Up> {
           prefixIcon: const Icon(Icons.person),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Last Name",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Email
     final emailfeild = TextFormField(
@@ -94,7 +94,7 @@ class _Sign_UpState extends State<Sign_Up> {
           prefixIcon: const Icon(Icons.mail),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "E mail",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Password
     final passwordfeild = TextFormField(
@@ -119,7 +119,7 @@ class _Sign_UpState extends State<Sign_Up> {
           prefixIcon: const Icon(Icons.vpn_key),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Confirm Password
     final confirmpassword = TextFormField(
@@ -140,15 +140,15 @@ class _Sign_UpState extends State<Sign_Up> {
           prefixIcon: const Icon(Icons.mail),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     );
     //--------------------------------Button
     final loginbutton = Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.red,
+      borderRadius: BorderRadius.circular(10),
+      color: const Color.fromRGBO(220, 34, 34, 1),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           signUp(emailController.text, passwordController.text);
@@ -225,7 +225,7 @@ class _Sign_UpState extends State<Sign_Up> {
                             " Login",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Colors.red,
+                                color: Color.fromRGBO(220, 34, 34, 1),
                                 fontSize: 15),
                           ),
                         ),
